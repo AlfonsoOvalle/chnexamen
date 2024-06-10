@@ -1,8 +1,7 @@
-# Instrucciones ejecucion del proyecto
+# Detalles Proyecto CHN
 
+> __Script de la Base de datos__
 ```sql
->Descargamos el bash de miniOne
-
 CREATE DATABASE IF NOT EXISTS DBCHN;
 
 use DBCHN
@@ -38,120 +37,47 @@ CREATE TABLE IF NOT EXISTS cheque (
     id_cuenta INT NOT NULL    
 )
 
-
-
 ALTER TABLE cuenta
 ADD CONSTRAINT FK_cuenta_cliente FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente);
 
-
 ALTER TABLE cheque
 ADD CONSTRAINT FK_cuenta_cheque FOREIGN KEY (id_cuenta) REFERENCES cuenta(id_cuenta);
-
->Actualizamos los repositorios
-```sh
-apt-get update
-```
->Descargamos el bash de miniOne
-```sh
-wget 'https://github.com/OpenNebula/minione/releases/latest/download/minione'
 ```
 
->Concedemos permisos al script
+>__Diagrama Entidad Relacion__
+>
+![Logotipo de Google](https://www.4shared.com/img/0Wx3GwDxge/s25/1900341f2a0/ER_online)
+
+>__Manual de Usuario__
 ```sh
-chmod 777 minione
+Modulo de Clientes
+En esta sección se tiene la creación de clientes, activación o inactivación y su edición 
 ```
-**Si se trabaja sobre una instalación mínima de Ubuntu, se deben instalar las siguientes herramientas:**
+>
+![Logotipo de Google](https://www.4shared.com/img/9pkZpsmtjq/s25/1900352ea60/Modulo_de_Clientes)
+![Logotipo de Google](https://www.4shared.com/img/KC19d9oafa/s25/1900352ea60/Modulo_de_Clientes_Nuevo)
+![Logotipo de Google](https://www.4shared.com/img/-XovyZuLjq/s25/1900352e678/Modulo_de_Clientes_Inactivar)
 ```sh
-sudo apt install curl -y
-sudo apt-get install augeas-tools -y
-sudo apt-get install openssh-server -y
+Modulo de Cuentas
+En este módulo se listan todas las cuentas para cada cliente y su respectiva solicitud de apertura de cuentas así como la activación o inactivación de alguna cuenta.
 ```
-
->Para realizar una instalación detallada se hace uso del parámetro --verbose, este instalara un hipervisor KVM por defecto
->Algunos  [parámetros de instalación](#Parámetros-de-instalación) que se pueden utilizar
-```sh
-sudo bash minione --verbose
-```
->Si se desea instalar un hipervisor LXD
-```sh
-sudo bash minione --verbose --lxd
-```
-> __Si todo marcha bien, se tendrá una salida parecida a la siguiente__
+>
+![Logotipo de Google](https://www.4shared.com/img/TJOT05Amge/s25/1900352ee48/Modulo_de_Cuentas_Solicitud)
+![Logotipo de Google](https://www.4shared.com/img/yV-OxVjLfa/s25/1900352ee48/Modulo_de_Cuentas_Inactivar)
 
 ```sh
-### Checks & detection
-Checking AppArmor  SKIP will try to modify
-
-### Main deployment steps:
-Install OpenNebula frontend version 5.10
-Configure bridge minionebr with IP 172.16.100.1/24
-Enable NAT over wlp2s0
-Modify AppArmor
-Install OpenNebula KVM node
-Export appliance and update VM template
-
-Do you agree? [yes/no]:
-yes
-
-### Installation
-Updating APT cache  OK
-Download augeas lens oned.aug  OK
-Creating bridge interface minionebr  OK
-Bring bridge interfaces up  OK
-Configuring NAT using iptables  OK
-Saving iptables changes  OK
-Installing DNSMasq  OK
-Starting DNSMasq  OK
-Configuring repositories  OK
-Updating APT cache  OK
-Installing OpenNebula packages  OK
-Installing Ruby gems  OK
-Installing OpenNebula node packages  OK
-Updating AppArmor  OK
-Disable default libvirtd networking  OK
-Restart libvirtd  OK
-
-### Configuration
-Switching OneGate endpoint in oned.conf  OK
-Switching scheduler interval in oned.conf  OK
-Setting initial password for current user and oneadmin  OK
-Changing WebUI to listen on port 80  OK
-Starting OpenNebula services  OK
-Enabling OpenNebula services  OK
-Add ssh key to oneadmin user  OK
-Update ssh configs to allow VM addresses reusig  OK
-Ensure own hostname is resolvable  OK
-Checking OpenNebula is working  OK
-Disabling ssh from virtual network  OK
-Adding localhost ssh key to known_hosts  OK
-Testing ssh connection to localhost  OK
-Updating datastores, TM_MAD=qcow2, SHARED=yes  OK
-Creating KVM host  OK
-Creating virtual network  OK
-Exporting [CentOS 7] from Marketplace to local datastore  OK
-Updating VM template  OK
-
-### Report
-OpenNebula 5.10 was installed
-Sunstone [the webui] is runninng on:
-  http://192.168.1.25/
-Use following to login:
-  user: oneadmin
-  password: 48h4dE8arj
+Modulo de Manejo de Cheques
+En este módulo se listan los movimientos de saldos y pago de cheques que se realizan a cada cliente, así como el manejo de movimientos de las cuentas y chequeras.
 ```
+![Logotipo de Google](https://www.4shared.com/img/i8GY7lmUku/s25/1900352f230/Modulo_de_Manejo_Chequeras)
+![Logotipo de Google](https://www.4shared.com/img/vr6gqortfa/s25/1900352ee48/Modulo_de_Manejo_Chequeras_Mov)
 
-> __Listo ya está instalado OpenNebula correctamente__
+>__Detalles del despliegue__
+```sh
 
-![test](https://dc349.4shared.com/img/HoZMxd7Hea/s23/1727568b198/opennebula)
-##### Parámetros de instalación                                                                                                 
-| Parámetro | Descripción |
-| ------ | ------ |
-|--help	| Mostrar todos los modificadores de línea de comando disponibles.|
-|--verbose |	Registro detallado.|
-|--lxd|	Implemente el entorno para evaluar el hipervisor LXD.|
-|--version|	Especifique una versión particular de OpenNebula para implementar|
-|--frontend |Solo frontend. Omitir hipervisor / red. Configuración.|
-|--sunstone-port|	Puerto para enlazar la interfaz de usuario web de Sunstone|
-|--password |	Contraseña inicial para un usuario dedicado de oneadmin|
-|--vm-password |	Contraseña para iniciar sesión en máquinas vrtuales a través de VNC integrado|
-|--purge | Desinstale OpenNebula y elimine todos los rastros.|
+El proyecto se compone de 3 contenedores en los cuales se dividen de la siguiente forma
+Contenedor1:  frontEnd(React js)
+Contenedor2:  backEnd(Java Spring boot)
+Contenedor3:  base de datos(Mysql)
+
+```
