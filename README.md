@@ -1,7 +1,7 @@
 # Instrucciones ejecucion del proyecto
 
 ```sql
--- Script Base de datos
+>Descargamos el bash de miniOne
 
 CREATE DATABASE IF NOT EXISTS DBCHN;
 
