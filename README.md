@@ -1,4 +1,4 @@
-# Instalación OpenNebula miniOne [![N|Solid](https://opennebula.io/wp-content/uploads/2019/04/img-logo-blue.svg)](https://docs.opennebula.io/minione/)
+# Instrucciones Ejecucion del proyecto, frontEnd,BackEnd y DB
 
 
 
