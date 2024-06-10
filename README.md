@@ -1,6 +1,8 @@
 # Instrucciones ejecucion del proyecto
 
-
+```sql
+-- Ejemplo de consulta SQL
+SELECT * FROM usuarios;
 
 >Actualizamos los repositorios
 ```sh
