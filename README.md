@@ -1,4 +1,4 @@
-# Instrucciones ejecucion del proyecto, frontEnd,backEnd y DB
+# Instrucciones ejecucion del proyecto
 
 
 
