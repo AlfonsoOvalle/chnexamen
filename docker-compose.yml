@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+  mysql:
+    image: 'mysql:latest'
+    environment:
+      MYSQL_ROOT_PASSWORD: root2009
+    ports:
+      - '3306:3306'
+    restart: unless-stopped
+  imgapichn:
+    image: imgapichn
+    ports:
+      - '8080:8080'
+  imgfrontchn:
+    image: imgfrontchn
+    ports:
+      - '3000:3000'
