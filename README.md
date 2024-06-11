@@ -72,7 +72,7 @@ En este módulo se listan los movimientos de saldos y pago de cheques que se rea
 ![Logotipo de Google](https://www.4shared.com/img/i8GY7lmUku/s25/1900352f230/Modulo_de_Manejo_Chequeras)
 ![Logotipo de Google](https://www.4shared.com/img/vr6gqortfa/s25/1900352ee48/Modulo_de_Manejo_Chequeras_Mov)
 
->__Detalles del despliegue__
+# Despliegue Proyecto CHN
 ```sh
 
 El proyecto se compone de 3 contenedores en los cuales se dividen de la siguiente forma
@@ -81,3 +81,54 @@ Contenedor2:  backEnd(Java Spring boot)
 Contenedor3:  base de datos(Mysql)
 
 ```
+#### Pasos para levantar los servicios y la aplicación
+
+1. Clonar el repositorio:
+
+   ```console
+   $ git clone https://github.com/AlfonsoOvalle/chnexamen.git
+   ```
+
+2. Posicionarse en la carpeta raíz del proyecto y abrir una terminal:
+
+   ```console
+   $ cd <ruta raiz proyecto> 
+   ```
+
+3. En la carpeta raiz localizar el siguiente archivo:
+
+   ```console
+   docker-compose.yml
+   ```
+
+4. Ejecutar el siguiente comando para levantar los diferentes servicios:
+
+   ```console
+   $ docker-compose up -d
+   ```
+   Este comando puede demorar algunos minutos, esperar a que se aprovicionen los contenedores y verificar su estado
+   
+5. Verificar que los contenedores esten funcionando:
+
+   ```console
+   $ docker ps --format "table {{.Ports}}\\t{{.Image}}\\t{{.Status}}\\t{{.Names}}" --no-trunc
+   ```
+   Este comando mostrara una salida parecida a ala siguiente:
+   ![Logotipo de Google](https://dc700.4shared.com/img/Wfrv-7YUku/s24/190082978b0/dockerps?async&rand=0.6425932090176958)
+
+   Si todos los contenedores se estan ejecutando correctamente es posible validar el funcionamiento de la aplicacion
+   
+7. Acceder a la aplicacion web:
+   ```console
+   Puertos utiliados:
+   Base de datos: 3306
+   FrontEnd: 3000
+   BackEnd: 8080
+
+   http://localhost:3000
+   
+   ```
+
+   ![Logotipo de Google](https://dc551.4shared.com/img/xQi3jvRbfa/s23/190083a8010/Web)
+   
+   Se mostrara una pantalla de la aplicacion web, esto indica que todo esta funcionando correctamente.
