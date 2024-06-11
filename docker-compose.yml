@@ -1,4 +1,4 @@
-version: '3.9'
+version: '3.2'
 services:
   mysql:
     image: 'mysql:latest'
@@ -8,10 +8,10 @@ services:
       - '3306:3306'
     restart: unless-stopped
   imgapichn:
-    image: imgapichn
+    image: d3nisovalle/imgapichn:v1
     ports:
       - '8080:8080'
   imgfrontchn:
-    image: imgfrontchn
+    image: d3nisovalle/imgfrontchn:v1
     ports:
       - '3000:3000'
