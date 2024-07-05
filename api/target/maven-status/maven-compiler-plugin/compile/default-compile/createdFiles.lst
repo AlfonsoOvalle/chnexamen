@@ -1,0 +1,9 @@
+com\chn\examen\BasicApplication.class
+com\chn\repositories\cuentaRepository.class
+com\chn\entities\Cheque.class
+com\chn\entities\Cliente.class
+com\chn\controller\chnController.class
+com\chn\entities\Cuenta.class
+com\chn\services\chnSerivice.class
+com\chn\repositories\chequeRepository.class
+com\chn\repositories\clienteRepository.class

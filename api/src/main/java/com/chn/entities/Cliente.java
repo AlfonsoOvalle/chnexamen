@@ -20,7 +20,7 @@ public class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @javax.persistence.Id
-    private Integer idCliente;
+    private Integer id_cliente;
 
     @Column(nullable = false, length = 50)
     private String nombre;
@@ -29,15 +29,15 @@ public class Cliente implements Serializable {
     private String apellido;
 
     @Column(nullable = false, length = 50)
-    private String numeroIdentificacion;
+    private String numero_identificacion;
 
-    private LocalDate fechaNacimiento;  // Use LocalDate for Date
+    private LocalDate fecha_nacimiento;  // Use LocalDate for Date
 
     @Column(nullable = false, length = 50)
     private String direccion;
 
     @Column(nullable = false, length = 50)
-    private String correoElectronico;
+    private String correo_electronico;
 
     @Column(nullable = false)
     private int telefono;
@@ -47,24 +47,24 @@ public class Cliente implements Serializable {
     public Cliente() {
     }
 
-    public Cliente(Integer idCliente, String nombre, String apellido, String numeroIdentificacion, LocalDate fechaNacimiento, String direccion, String correoElectronico, int telefono, String estado) {
-        this.idCliente = idCliente;
+    public Cliente(Integer id_cliente, String nombre, String apellido, String numero_identificacion, LocalDate fecha_nacimiento, String direccion, String correo_electronico, int telefono, String estado) {
+        this.id_cliente = id_cliente;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.numeroIdentificacion = numeroIdentificacion;
-        this.fechaNacimiento = fechaNacimiento;
+        this.numero_identificacion = numero_identificacion;
+        this.fecha_nacimiento = fecha_nacimiento;
         this.direccion = direccion;
-        this.correoElectronico = correoElectronico;
+        this.correo_electronico = correo_electronico;
         this.telefono = telefono;
         this.estado = estado;
     }
 
-    public Integer getIdCliente() {
-        return idCliente;
+    public Integer getId_cliente() {
+        return id_cliente;
     }
 
-    public void setIdCliente(Integer idCliente) {
-        this.idCliente = idCliente;
+    public void setId_cliente(Integer id_cliente) {
+        this.id_cliente = id_cliente;
     }
 
     public String getNombre() {
@@ -83,20 +83,20 @@ public class Cliente implements Serializable {
         this.apellido = apellido;
     }
 
-    public String getNumeroIdentificacion() {
-        return numeroIdentificacion;
+    public String getNumero_identificacion() {
+        return numero_identificacion;
     }
 
-    public void setNumeroIdentificacion(String numeroIdentificacion) {
-        this.numeroIdentificacion = numeroIdentificacion;
+    public void setNumero_identificacion(String numero_identificacion) {
+        this.numero_identificacion = numero_identificacion;
     }
 
-    public LocalDate getFechaNacimiento() {
-        return fechaNacimiento;
+    public LocalDate getFecha_nacimiento() {
+        return fecha_nacimiento;
     }
 
-    public void setFechaNacimiento(LocalDate fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+    public void setFecha_nacimiento(LocalDate fecha_nacimiento) {
+        this.fecha_nacimiento = fecha_nacimiento;
     }
 
     public String getDireccion() {
@@ -107,12 +107,12 @@ public class Cliente implements Serializable {
         this.direccion = direccion;
     }
 
-    public String getCorreoElectronico() {
-        return correoElectronico;
+    public String getCorreo_electronico() {
+        return correo_electronico;
     }
 
-    public void setCorreoElectronico(String correoElectronico) {
-        this.correoElectronico = correoElectronico;
+    public void setCorreo_electronico(String correo_electronico) {
+        this.correo_electronico = correo_electronico;
     }
 
     public int getTelefono() {
@@ -130,7 +130,5 @@ public class Cliente implements Serializable {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
-   
 
 }
