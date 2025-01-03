@@ -1,4 +1,4 @@
-# Detalles Proyecto CHN
+# Detalles Proyecto CHN 
 
 > __Script de la Base de datos__
 ```sql
